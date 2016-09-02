@@ -1,0 +1,21 @@
+{
+  "name": "fast-forward-framework",
+  "version": "0.0.2",
+  "description": "An event driven framework for React Native developments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fast",
+    "frameword",
+    "framework",
+    "react",
+    "native"
+  ],
+  "author": "Guillaume Nachury <guillaume.nachury@gmail.com>",
+  "license": "ISC",
+  "dependencies":{
+		"lodash.sortedindexby": "^4.6.0"
+	}
+}
