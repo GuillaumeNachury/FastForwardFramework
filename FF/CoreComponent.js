@@ -1,3 +1,8 @@
+/*
+@author: __Guillaume
+@date: 2016-08
+*/
+
 import React, { Component } from 'react';
 import Core from './Core';
 import Constants from './CoreConstants';
@@ -16,8 +21,15 @@ class CoreComponent extends Component{
 
 
 //FMWK stuff
-  register(topic, callback){
-    Core.register(this.id, topic, callback);
+  register(topic, callback, priorityLvl){
+    if(priorityLvl && !(typeof priorityLvl === "number"))
+    {
+      new Error('The priority lvl must be a number');
+    }
+    else if(priorityLvl == undefined){
+      priorityLvl = 100;
+    }
+    Core.register(this.id, topic, callback, priorityLvl);
   }
 
   dispatch(topic, data){

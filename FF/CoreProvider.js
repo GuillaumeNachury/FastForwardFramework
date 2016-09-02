@@ -1,3 +1,8 @@
+/*
+@author: __Guillaume
+@date: 2016-08
+*/
+
 import Core from './Core';
 import Constants from './CoreConstants';
 import CoreUtils from './CoreUtils';

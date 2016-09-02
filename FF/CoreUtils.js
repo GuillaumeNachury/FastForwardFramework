@@ -1,3 +1,8 @@
+/*
+@author: __Guillaume
+@date: 2016-08
+*/
+
 module.exports = {
     getFormatedDate : (full)=>{
     	var d = new Date();
