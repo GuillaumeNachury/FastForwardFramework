@@ -35,6 +35,7 @@ class Core{
     this.log(Constants.LOG_INFO,this.__LOG_NAME, "Created (id:"+this.__id+')');
     this.log(Constants.LOG_INFO,this.__LOG_NAME, "The tracking system is "+ (this._isTracking?"ON":"OFF"));
     this.log(Constants.LOG_INFO,this.__LOG_NAME, "Timestamp are  "+ (this._isTimeStampActive?"ON":"OFF"));
+    this.stamp("Core initialized");
   }
 
 
@@ -102,7 +103,7 @@ class Core{
   }
 
   dispatch(id, topic, data){
-    stamp(id +" dispatched "+topic);
+    this.stamp(id +" dispatched "+topic);
     let _func = this.__topicToFunc[topic];
     let _sequence = {time:new Date().getTime(), from: id , to:[]};
     if(_func && _func.length>0){
@@ -114,7 +115,7 @@ class Core{
         if(this._isTracking){
           _sequence.to.push({time:new Date().getTime(), id:_func[i].id})
         }
-        stamp(_func[i].id +" received "+topic);
+        this.stamp(_func[i].id +" received "+topic);
         if(_ret && _ret.ff_Block && _ret.ff_Block === true){
             this.log(Constants.LOG_WARN,this.__LOG_NAME, "Dispatch stoped by "+_func[i].id);
             break;
