@@ -51,6 +51,10 @@ class Core{
       _tpc =   this.__topicToFunc[topic];
       this.__receiverToTopic[id] = [];
     }
+    else{
+      if(!this.__receiverToTopic[id]) this.__receiverToTopic[id] = [];
+    }
+
 
     if(this.__isAlreadyRegister(_tpc, id)){
       this.log(Constants.LOG_WARN,this.__LOG_NAME, id+" already registed for "+topic+" notifications... SKIPPING");
@@ -88,6 +92,7 @@ class Core{
     }
     if(_idx>-1){
       _cbks.splice(_idx,1);
+      delete this.__receiverToTopic[receiver];
       this.log(Constants.LOG_INFO,this.__LOG_NAME, "Unregistered "+topic+" for "+receiver);
     }
     else{
@@ -98,7 +103,6 @@ class Core{
   unregisterAllFor(receiver){
     let _tpcs = this.__receiverToTopic[receiver];
     _tpcs.map((tpc)=>this.unregisterTopicFor(tpc,receiver));
-    this.__receiverToTopic[receiver] = [];
 
   }
 
