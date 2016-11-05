@@ -69,6 +69,7 @@ class Core{
           _tpc.splice(_idxArr,0, _obj);
         }
         this.log(Constants.LOG_INFO,this.__LOG_NAME, id+" registered for "+topic+" notifications with priority lvl : "+priorityLvl);
+        this.stamp(id+" registered for "+topic+" notifications with priority lvl : "+priorityLvl);
         this.__receiverToTopic[id].push(topic);
     }
 
@@ -94,6 +95,7 @@ class Core{
       _cbks.splice(_idx,1);
       delete this.__receiverToTopic[receiver];
       this.log(Constants.LOG_INFO,this.__LOG_NAME, "Unregistered "+topic+" for "+receiver);
+      this.stamp("Unregistered "+topic+" for "+receiver);
     }
     else{
         this.log(Constants.LOG_WARN,this.__LOG_NAME, "Could not unregister "+topic+" for "+receiver+". No matching entry");

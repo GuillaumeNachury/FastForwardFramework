@@ -43,10 +43,10 @@ module.exports = {
 
 #### Create a _**Fast-Forward**_ compatible RN component
 ```javascript
-import ff_Component from 'fast-forward-framework';
+import {ff_Component} from 'fast-forward-framework';
 import Triggers from './Triggers'
 
-class SimpleView extends CoreComponent{
+class SimpleView extends ff_Component{
 
   constructor(props){
     super(props);
@@ -87,7 +87,7 @@ import SimpleView from './your/SimpleView';
 
 #### Create a _**Fast-Forward**_ compatible custom object
 ```javascript
-import ff_Dispatcher from 'fast-forward-framework';
+import {ff_Dispatcher} from 'fast-forward-framework';
 import Triggers from './Triggers';
 
 const __NAME="mySimpProvider";
